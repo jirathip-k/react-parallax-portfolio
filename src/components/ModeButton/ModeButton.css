@@ -1,0 +1,89 @@
+
+.mode-button {
+  --switch-width: 3.5em;
+  --switch-height: calc(var(--switch-width) / 2);
+  --left-ball-color: black;
+  --right-ball-color: white;
+  width: var(--switch-width);
+  height: var(--switch-height);
+  border-radius: calc(var(--switch-height) / 2);
+  background-color: var(--left-ball-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.mode-button input[type="checkbox"] {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+}
+
+.mode-button .left {
+  position: absolute;
+  width: calc(var(--switch-width) / 3);
+  height: calc(var(--switch-height) / 1.5);
+  background-color: var(--left-ball-color);
+  border-radius: 50%;
+  left: calc((var(--switch-height) - (var(--switch-height) / 1.5)) / 2);
+  top: calc((var(--switch-height) - (var(--switch-height) / 1.5)) / 2);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.mode-button .right {
+  position: absolute;
+  width: calc(var(--switch-width) / 3);
+  height: calc(var(--switch-height) / 1.5);
+  background-color: var(--right-ball-color);
+  border-radius: 50%;
+  right: calc((var(--switch-height) - (var(--switch-height) / 1.5)) / 2);
+  top: calc((var(--switch-height) - (var(--switch-height) / 1.5)) / 2);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.mode-button .switcher {
+  position: absolute;
+  width: calc(100% + var(--switch-width) / 3);
+  height: 100%;
+  background-color: var(--right-ball-color);
+  z-index: 1;
+  left: calc(-50% + var(--switch-width) / (3 * 2));
+  pointer-events: none;
+  transition: left 500ms ease;
+  border-top-left-radius: calc(var(--switch-width) / 3);
+  border-bottom-left-radius: calc(var(--switch-width) / 3);
+}
+
+.mode-button .switcher:before {
+  position: absolute;
+  content: '';
+  width: calc(var(--switch-width) / 3);
+  height: 100%;
+  background-color: var(--left-ball-color);
+  display: block;
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50%;
+  z-index: 2;
+}
+
+.mode-button .switcher:after {
+  position: absolute;
+  content: '';
+  width: calc(var(--switch-width) / 3);
+  height: 100%;
+  background-color: var(--right-ball-color);
+  display: block;
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+}
+
+.mode-button input:checked ~ .switcher {
+  left: 100%;
+}
+
+.mode-button input:checked ~ .switcher:before {
+  display: none;
+}
