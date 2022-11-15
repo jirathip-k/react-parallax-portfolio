@@ -1,6 +1,7 @@
 {
   "name": "react-01",
   "version": "0.1.0",
+  "homepage": "https://jirathip-k.github.io/react-parallax-portfolio",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
@@ -15,12 +16,15 @@
     "css-doodle": "^0.30.7",
     "d3": "^7.6.1",
     "framer-motion": "^7.6.6",
+    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
