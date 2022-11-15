@@ -48,7 +48,7 @@ export default function Content(props) {
                     onClick={() => ref.current.scrollTo(3)}
                     style={parallaxStyle}
                 >
-                    <h1 style={{zIndex: 5}}>Hello 3</h1>   
+                    <h1 style={{zIndex: 5}}>Hi Dad</h1>   
                 </ParallaxLayer>
                 <ParallaxLayer 
                     offset={3}
